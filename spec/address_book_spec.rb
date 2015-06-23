@@ -37,5 +37,16 @@ require_relative '../models/address_book.rb'
 			end
 		end
 
+		context '#remove_entry' do
+			it "removes one entry from the address book" do
+				book = AddressBook.new
+				book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+				new_entry = book.entries[0]
+				book.remove_entry(new_entry)
+
+				expect(book.entries).not_to include(new_entry)
+			end
+		end
+
 
 	end
